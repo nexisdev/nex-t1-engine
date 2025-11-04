@@ -98,8 +98,8 @@ export async function withAuth(server: FastifyInstance) {
   });
 
   // Setup the auth router and auth middleware
-  await server.register(authRouter, { prefix: "/auth" });
-  await server.register(authMiddleware);
+  server.register(authRouter, { prefix: "/auth" });
+  server.register(authMiddleware);
 
   // Decorate the request with a null user
   server.decorateRequest("user", null);

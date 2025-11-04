@@ -6,4 +6,6 @@
 
 ### Fixed
 - Check in the Prisma version parity script so Docker builds on Railway can execute the postinstall guard without failing.
+- Post-process compiled ESM imports to include `.js` extensions, allowing us to drop Node's experimental specifier resolution flag and silence runtime warnings in Railway.
+- Hide Prisma upgrade notices and AWS SDK v2 maintenance banners in production logs while updating Fastify header schemas to avoid v5 deprecation warnings.
 

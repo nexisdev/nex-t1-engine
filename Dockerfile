@@ -57,7 +57,9 @@ EXPOSE 3005
 ARG ENGINE_VERSION
 ENV ENGINE_VERSION=${ENGINE_VERSION}
 ENV NODE_ENV="production" \
-    PATH=/app/node_modules/.bin:$PATH
+    PATH=/app/node_modules/.bin:$PATH \
+    PRISMA_HIDE_UPDATE_MESSAGE="true" \
+    AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE="1"
 
 COPY --from=certs /app/src/https ./dist/https
 COPY --from=build /app/package.json .

@@ -70,6 +70,13 @@ const responseSchema = Type.Object({
   result: Type.Union([responseSchemaV4, responseSchemaV5]),
 });
 
+const requestHeadersSchema = Type.Intersect([
+  walletWithAAHeaderSchema,
+  thirdwebSdkVersionSchema,
+]);
+
+type RequestHeadersSchema = Static<typeof requestHeadersSchema>;
+
 responseSchema.example = {
   result: "1",
 };
@@ -91,10 +98,7 @@ export async function erc20SignatureGenerate(fastify: FastifyInstance) {
       operationId: "erc20-signatureGenerate",
       params: requestSchema,
       body: requestBodySchema,
-      headers: {
-        ...walletWithAAHeaderSchema.properties,
-        ...thirdwebSdkVersionSchema.properties,
-      },
+      headers: requestHeadersSchema,
       response: {
         ...standardResponseSchema,
         [StatusCodes.OK]: responseSchema,
@@ -102,12 +106,12 @@ export async function erc20SignatureGenerate(fastify: FastifyInstance) {
     },
     handler: async (request, reply) => {
       const { chain, contractAddress } = request.params;
+      const headers = request.headers as RequestHeadersSchema;
       const {
         "x-backend-wallet-address": walletAddress,
         "x-account-address": accountAddress,
-      } = request.headers as Static<typeof walletWithAAHeaderSchema>;
-      const { "x-thirdweb-sdk-version": sdkVersion } =
-        request.headers as Static<typeof thirdwebSdkVersionSchema>;
+      } = headers;
+      const { "x-thirdweb-sdk-version": sdkVersion } = headers;
 
       const chainId = await getChainIdFromChain(chain);
 
