@@ -1,4 +1,4 @@
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { getAddress } from "thirdweb";
 import { z } from "zod";
 import type { PrismaTransaction } from "../../schemas/prisma";

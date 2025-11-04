@@ -1,4 +1,4 @@
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { z } from "zod";
 import { decrypt } from "../../utils/crypto";
 import { env } from "../../utils/env";

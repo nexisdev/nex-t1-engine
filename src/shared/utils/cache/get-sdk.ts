@@ -1,6 +1,6 @@
 import { Type } from "@sinclair/typebox";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { getChainMetadata } from "thirdweb/chains";
 import { badChainError } from "../../../server/middleware/error";
 import { getChain } from "../chain";

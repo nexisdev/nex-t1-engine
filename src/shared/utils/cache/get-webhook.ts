@@ -1,5 +1,5 @@
 import type { Webhooks } from "@prisma/client";
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { getAllWebhooks } from "../../db/webhooks/get-all-webhooks";
 import type { WebhooksEventTypes } from "../../schemas/webhooks";
 import { env } from "../env";

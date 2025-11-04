@@ -1,4 +1,4 @@
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { getAddress, type Address, type Chain } from "thirdweb";
 import type { Account } from "thirdweb/wallets";
 import {

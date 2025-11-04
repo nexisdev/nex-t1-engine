@@ -1,7 +1,7 @@
 import type { EVMWallet } from "@thirdweb-dev/wallets";
 import { AwsKmsWallet } from "@thirdweb-dev/wallets/evm/wallets/aws-kms";
 import { GcpKmsWallet } from "@thirdweb-dev/wallets/evm/wallets/gcp-kms";
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import {
   WalletDetailsError,
   getWalletDetails,

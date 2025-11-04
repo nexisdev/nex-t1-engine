@@ -1,5 +1,5 @@
 import type { Tokens } from "@prisma/client";
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { getToken } from "../../db/tokens/get-token";
 import { env } from "../env";
 

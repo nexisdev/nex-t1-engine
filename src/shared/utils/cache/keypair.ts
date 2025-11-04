@@ -1,5 +1,5 @@
 import type { Keypairs } from "@prisma/client";
-import LRUMap from "mnemonist/lru-map";
+import LRUMap from "mnemonist/lru-map.js";
 import { getKeypairByHash, getKeypairByPublicKey } from "../../db/keypair/get";
 import { env } from "../env";
 
