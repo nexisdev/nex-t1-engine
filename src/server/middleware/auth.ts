@@ -98,7 +98,12 @@ export async function withAuth(server: FastifyInstance) {
   });
 
   // Setup the auth router and auth middleware
-  server.register(authRouter, { prefix: "/auth" });
+  server.register(
+    (instance, opts, done) => {
+      void authRouter(instance, opts, done);
+    },
+    { prefix: "/auth" },
+  );
   server.register(authMiddleware);
 
   // Decorate the request with a null user
